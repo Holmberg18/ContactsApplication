@@ -20,33 +20,18 @@ $("#addButton").click(function(){
 	 state: $("#state").val(),
 	};
 	
-	list.push(Contact);
+	// list.push(Contact);
 	
+	var itemContact = $("<li>"+Contact.firstName+" "+Contact.lastName+"</li>");
+	itemContact.click(function(){
+		$(".contactInfo").html('<ul><li>'+Contact.firstName+' '+Contact.lastName+'</li><li>'+Contact.phoneNumber+'</li><li>'+Contact.street+'</li><li>'+Contact.city+'</li><li>'+Contact.state+'</li></ul>');
+	});
 	
-$(".contactList").append("<div>"+Contact.firstName+" "+Contact.lastName+"</div>");
+$(".contactList ul").append(itemContact);
 	
 	
 });	
 
-	// $(".contactList li").click(function(){
-	// alert("Hello");
-		// $(".contactInfo ul").append("<li>Hello</li>");
-	// });
-
-$(".contactList div").mousedown(function() {
-	//trying to select $("")
-	
-	$(".contactInfo").append("<p>Hello</p>");
-	var selectedContact = $(this).text();
-	
-list.forEach(function(contact) {
-	if ((''+contact.firstName+' '+contact.lastName+'') == selectedContact){
-		$(".contactInfo").html('<ul><li>'+contact.firstName+' '+contact.lastName+'</li><li>'+contact.phoneNumber+'</li><li>'+contact.street+'</li><li>'+contact.city+'</li><li>'+contact.state+'</li></ul>');
-		return;
-	}
-});
-
-});//end click
 
 return false;
 });
